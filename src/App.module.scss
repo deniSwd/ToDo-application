@@ -1,0 +1,17 @@
+.app {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+
+  .content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
+    min-width: 200px;
+    border: 1px solid lightgray;
+  }
+}
+
+

@@ -1,11 +1,17 @@
-import React from 'react';
-import {Counter} from './components/counter/Counter';
-import './App.css';
+import React, { FC } from 'react';
+import {TaskField} from './components/taskField/TaskField';
+import s from './App.module.scss';
+import {InputField} from "./components/inputField/inputField";
+import {Footer} from "./components/footer/footer";
 
-function App() {
+const App: FC  = () => {
   return (
-    <div className="App">
-        <Counter />
+    <div className={s.app}>
+      <div className={s.content}>
+        <InputField />
+        <TaskField/>
+        <Footer />
+      </div>
     </div>
   );
 }
