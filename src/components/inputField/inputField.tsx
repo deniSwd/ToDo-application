@@ -13,7 +13,7 @@ export const InputField: FC = () => {
       value: taskValue,
       isCompleted: false
     }
-    if (ev.key === 'Enter') {
+    if (ev.key === 'Enter' && taskValue !== '') {
       dispatch(addTask(newTask))
       setTaskValue('')
     }

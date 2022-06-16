@@ -19,15 +19,21 @@ export const taskListSlice = createSlice({
   initialState,
   reducers: {
     addTask: (state, actions: PayloadAction<ToDoObjectType>) => {
-      state.todos.push(actions.payload);
+      if(!state.todos.some(i => i.value === actions.payload.value)){
+        state.todos.push(actions.payload)
+      }
     },
     deleteCompletedTasks: (state) => {
-      state.todos = state.todos.filter(i => !i.isCompleted);
+      state.todos = state.todos.filter(i => !i.isCompleted)
+    },
+    isCompletedChange: (state, actions: PayloadAction<string>) => {
+      let itemIndex = state.todos.findIndex(i => i.value === actions.payload)
+      state.todos[itemIndex].isCompleted = !state.todos[itemIndex].isCompleted
     }
   }
 });
 
-export const { addTask, deleteCompletedTasks } = taskListSlice.actions;
+export const { addTask, deleteCompletedTasks, isCompletedChange } = taskListSlice.actions;
 
 export const selectTaskList = (state: RootState) => state.taskList.todos
 
