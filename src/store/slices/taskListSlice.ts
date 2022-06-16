@@ -1,28 +1,35 @@
-import {createSlice} from '@reduxjs/toolkit';
+import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {RootState} from '../store';
 
 
-export interface CounterState {
-  value: number
+export type ToDoObjectType = {
+  value: string
+  isCompleted: boolean
+}
+export type InitialStateType = {
+  todos: Array<ToDoObjectType>
 }
 
-const initialState: CounterState = {
-  value: 0,
-};
+const initialState: InitialStateType = {
+  todos: []
+}
 
 export const taskListSlice = createSlice({
-  name: 'counter',
+  name: 'taskList',
   initialState,
   reducers: {
-    increment: (state) => {
-      state.value += 1;
+    addTask: (state, actions: PayloadAction<ToDoObjectType>) => {
+      state.todos.push(actions.payload);
+    },
+    deleteCompletedTasks: (state) => {
+      state.todos = state.todos.filter(i => !i.isCompleted);
     }
-  },
+  }
 });
 
-export const { increment } = taskListSlice.actions;
+export const { addTask, deleteCompletedTasks } = taskListSlice.actions;
 
-export const selectCount = (state: RootState) => state.counter.value;
+export const selectTaskList = (state: RootState) => state.taskList.todos
 
 /*export const incrementIfOdd =
   (amount: number): AppThunk =>

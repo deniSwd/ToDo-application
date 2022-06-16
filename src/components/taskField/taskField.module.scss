@@ -1,6 +1,10 @@
-.row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 30px;
+.taskField {
+  width: 100%;
+
+  .taskContent{
+    display: flex;
+    align-items: center;
+    height: 30px;
+    border-bottom: 1px solid lightgray;
+  }
 }
