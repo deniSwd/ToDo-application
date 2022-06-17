@@ -1,21 +1,22 @@
 import React, {FC} from "react";
 import s from '../footer/footer.module.scss'
-import {useAppDispatch} from "../../store/hooks";
-import {deleteCompletedTasks} from "../../store/slices/taskListSlice";
+import {useAppDispatch, useAppSelector} from "../../store/hooks";
+import {deleteCompletedTasks, selectTaskList, setItemsDisplay} from "../../store/slices/tasksListSlice";
 
 export const Footer: FC = () => {
-  /* const count = useAppSelector(selectCount);;*/
-   const dispatch = useAppDispatch()
+  const tasks = useAppSelector(selectTaskList)
+  const dispatch = useAppDispatch()
+  const itemsLeftLength = tasks.filter(i => !i.isCompleted).length
 
   return (
     <div className={s.footerContent}>
-      <div>Items left</div>
+      <div>{itemsLeftLength}Items left</div>
       <div className={s.taskType}>
-        <div>All</div>
-        <div>Active</div>
-        <div>Completed</div>
+        <div onClick={() => dispatch(setItemsDisplay('All'))}>All</div>
+        <div onClick={() => dispatch(setItemsDisplay('Active'))}>Active</div>
+        <div onClick={() => dispatch(setItemsDisplay('Completed'))}>Completed</div>
       </div>
-      <div onClick={()=>dispatch(deleteCompletedTasks())}>Clear completed</div>
+      <div onClick={() => dispatch(deleteCompletedTasks())}>Clear completed</div>
     </div>
-  );
+  )
 }

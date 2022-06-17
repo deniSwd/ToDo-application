@@ -1,7 +1,7 @@
 import React, {FC, useState, KeyboardEvent} from "react";
 import s from '../inputField/inputField.module.scss'
 import {useAppDispatch} from "../../store/hooks";
-import {addTask, ToDoObjectType} from "../../store/slices/taskListSlice";
+import {addTask, ToDoObjectType} from "../../store/slices/tasksListSlice";
 
 export const InputField: FC = () => {
   const [taskValue, setTaskValue] = useState<string>('')

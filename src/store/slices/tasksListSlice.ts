@@ -6,15 +6,21 @@ export type ToDoObjectType = {
   value: string
   isCompleted: boolean
 }
-export type InitialStateType = {
+
+export  type  ItemsDisplayType = 'All' | 'Active' | 'Completed'
+
+ type InitialStateType = {
   todos: Array<ToDoObjectType>
+  itemsDisplay: ItemsDisplayType
 }
+
 
 const initialState: InitialStateType = {
-  todos: []
+  todos: [],
+  itemsDisplay: 'All'
 }
 
-export const taskListSlice = createSlice({
+export const tasksListSlice = createSlice({
   name: 'taskList',
   initialState,
   reducers: {
@@ -27,23 +33,21 @@ export const taskListSlice = createSlice({
       state.todos = state.todos.filter(i => !i.isCompleted)
     },
     isCompletedChange: (state, actions: PayloadAction<string>) => {
-      let itemIndex = state.todos.findIndex(i => i.value === actions.payload)
-      state.todos[itemIndex].isCompleted = !state.todos[itemIndex].isCompleted
+      const item = state.todos.find(i => i.value === actions.payload)
+      if(!item) return
+      item.isCompleted = !item.isCompleted
+    },
+    setItemsDisplay: (state, action: PayloadAction<ItemsDisplayType>) => {
+      state.itemsDisplay = action.payload
     }
   }
 });
 
-export const { addTask, deleteCompletedTasks, isCompletedChange } = taskListSlice.actions;
+export const { addTask, deleteCompletedTasks, isCompletedChange, setItemsDisplay } = tasksListSlice.actions;
 
 export const selectTaskList = (state: RootState) => state.taskList.todos
+export const selectItemsDisplay = (state: RootState) => state.taskList.itemsDisplay
 
-/*export const incrementIfOdd =
-  (amount: number): AppThunk =>
-  (dispatch, getState) => {
-    const currentValue = selectCount(getState());
-    if (currentValue % 2 === 1) {
-      dispatch(incrementByAmount(amount));
-    }
-  };*/
 
-export default taskListSlice.reducer;
+
+export default tasksListSlice.reducer;
