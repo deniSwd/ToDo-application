@@ -16,7 +16,7 @@ export const TaskField: FC = () => {
         <div key ={i} className={s.taskContent}>
           <div className={t.isCompleted ? s.completed : s.notCompleted}
                onClick={()=>dispatch(isCompletedChange(t.value))}/>
-          <div> {t.value} {t.isCompleted ? 'yes' : 'no'}</div>
+          <div className={s.taskText}> {t.value} {t.isCompleted ? 'yes' : 'no'}</div>
         </div>)}
     </div>
   );

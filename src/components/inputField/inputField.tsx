@@ -23,7 +23,9 @@ export const InputField: FC = () => {
     <div className={s.inputField}>
       <input value={taskValue}
              onKeyDown={handleKeyDown}
-             onChange={e => setTaskValue(e.target.value)}/>
+             onChange={e => setTaskValue(e.target.value)}
+             placeholder='What needs to be done?'
+      className={s.input}/>
     </div>
   );
 }

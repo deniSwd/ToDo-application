@@ -10,13 +10,21 @@ export const Footer: FC = () => {
 
   return (
     <div className={s.footerContent}>
-      <div>{itemsLeftLength}Items left</div>
-      <div className={s.taskType}>
-        <div onClick={() => dispatch(setItemsDisplay('All'))}>All</div>
-        <div onClick={() => dispatch(setItemsDisplay('Active'))}>Active</div>
-        <div onClick={() => dispatch(setItemsDisplay('Completed'))}>Completed</div>
+      <div className={s.itemsLeft}>
+        {itemsLeftLength} Items left
       </div>
-      <div onClick={() => dispatch(deleteCompletedTasks())}>Clear completed</div>
+      <div className={s.taskFilter}>
+        <div className={s.filterButton}
+             onClick={() => dispatch(setItemsDisplay('All'))}>All</div>
+        <div className={s.filterButton}
+             onClick={() => dispatch(setItemsDisplay('Active'))}>Active</div>
+        <div className={s.filterButton}
+             onClick={() => dispatch(setItemsDisplay('Completed'))}>Completed</div>
+      </div>
+      <div className={s.clearCompleted}
+           onClick={() => dispatch(deleteCompletedTasks())}>
+        Clear completed
+      </div>
     </div>
   )
 }
