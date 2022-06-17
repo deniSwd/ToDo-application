@@ -5,7 +5,6 @@ import {addTask, ToDoObjectType} from "../../store/slices/tasksListSlice";
 
 export const InputField: FC = () => {
   const [taskValue, setTaskValue] = useState<string>('')
-  /* const count = useAppSelector(selectCount);*/
   const dispatch = useAppDispatch();
 
   const handleKeyDown = (ev: KeyboardEvent<HTMLElement>) => {

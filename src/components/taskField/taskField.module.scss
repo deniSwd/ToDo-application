@@ -11,21 +11,20 @@
     padding: 0.375rem 0.75rem;
     border-bottom: 1px solid lightgray;
 
-    .completed {
-      width: 20px;
-      height: 20px;
-      border-radius: 10px;
-      border: 1px solid gray;
-      background-color: gray;
-      cursor: pointer;
-    }
-
     .notCompleted {
-      width: 20px;
-      height: 20px;
-      border-radius: 10px;
-      border: 1px solid gray;
+      width: 25px;
+      height: 25px;
+      border-radius: 15px;
+      border: 2px solid lightgray;
       cursor: pointer;
+      .completed {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 25px;
+        height: 25px;
+        cursor: pointer;
+      }
     }
 
     .taskText {
