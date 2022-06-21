@@ -16,7 +16,6 @@ describe('inputField', () => {
     const input = screen.getByRole('textbox')
     await userEvent.type(input, 'test{enter}')
 
-    // expect(dispatchMock).toBeCalled()
     expect(mockDispatchFn).toHaveBeenCalled()
     expect(mockDispatchFn).toHaveBeenCalledWith({
       type: 'taskList/addTask',
