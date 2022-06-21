@@ -18,7 +18,7 @@ const buttonTest = async (text: string)=>{
   return mockDispatchFn
 }
 
-describe('footer', () => {
+describe('Footer', () => {
   test('should "All" button works', async () => {
     const allButton = await buttonTest('All')
     expect(allButton).toHaveBeenCalled()

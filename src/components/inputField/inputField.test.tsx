@@ -5,7 +5,7 @@ import * as hooks from '../../store/hooks'
 import {InputField} from './inputField';
 import {ToDoObjectType} from '../../store/slices/tasksListSlice';
 
-describe('inputField', () => {
+describe('InputField', () => {
   test('should input field works', async () => {
     const useDispatchSpy = jest.spyOn(hooks, 'useAppDispatch');
     const mockDispatchFn = jest.fn()
