@@ -8,7 +8,7 @@ const App: FC  = () => {
   return (
     <div className={s.app}>
       <div className={s.title}>
-        todos
+        -todos-
       </div>
       <div className={s.content}>
         <InputField />
