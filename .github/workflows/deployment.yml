@@ -24,5 +24,3 @@ jobs:
         run: npm run build
       - name: deploy application
         run: echo Deploying...
-      - name: print context
-        run: echo "${{toJSON(github.event)}}"
