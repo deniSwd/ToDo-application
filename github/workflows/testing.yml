@@ -1,0 +1,12 @@
+name: Test ToDo App
+on: push
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: get repository code
+        uses: action/checkout@v3
+      - name: install dependencies
+        run: npm install
+      - name: test application
+        run: npm test
