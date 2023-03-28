@@ -46,5 +46,16 @@ jobs:
         run: npm run lint
       - name: build application
         run: npm run build
-      - name: deploy application
-        run: echo Deploying...
+      - name: upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          path: build
+          name: build-files
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: get build project
+        uses: actions/download-artifact@v3
+        with:
+          name: build-files
