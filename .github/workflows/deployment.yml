@@ -1,0 +1,32 @@
+name: deploy ToDo App
+on: push
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: get repository code
+        uses: actions/checkout@v3
+      - name: install dependencies
+        run: npm install
+      - name: test application
+        run: npm test
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: get repository code
+        uses: actions/checkout@v3
+      - name: install dependencies
+        run: npm install
+      - name: lint application
+        run: npm run lint
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: get repository code
+        uses: actions/checkout@v3
+      - name: install dependencies
+        run: npm install
+      - name: build application
+        run: npm run build
+      - name: deploy application
+        run: echo Deploying...
