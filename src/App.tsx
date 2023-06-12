@@ -1,10 +1,10 @@
-import React, { FC } from 'react';
-import {TaskField} from './components/taskField/TaskField';
-import s from './App.module.scss';
-import {InputField} from "./components/inputField/inputField";
-import {Footer} from "./components/footer/footer";
+import React, { FC } from 'react'
+import { TaskField } from './components/taskField/TaskField'
+import s from './App.module.scss'
+import { InputField } from './components/inputField/inputField'
+import { Footer } from './components/footer/footer'
 
-const App: FC  = () => {
+const App: FC = () => {
   return (
     <div className={s.app}>
       <div className={s.title}>
@@ -12,11 +12,11 @@ const App: FC  = () => {
       </div>
       <div className={s.content}>
         <InputField />
-        <TaskField/>
+        <TaskField />
         <Footer />
       </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

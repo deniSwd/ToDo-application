@@ -1,4 +1,4 @@
-import {ItemsDisplayType, ToDoObjectType} from "../../store/slices/tasksListSlice";
+import { ItemsDisplayType, ToDoObjectType } from '../../store/slices/tasksListSlice'
 
 const tasksFilter = (itemsDisplay: ItemsDisplayType, tasks: Array<ToDoObjectType>) => {
   let currentItems: Array<ToDoObjectType>
